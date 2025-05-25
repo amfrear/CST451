@@ -1,0 +1,31 @@
+# macOS system files
+.DS_Store
+
+# Visual Studio
+.vscode/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# VS for Mac specific
+*.pidb
+*.userprefs
+
+# MySQL Workbench (if any dumps or logs are generated)
+*.sql
+*.bak
+*.log
+
+# Other system artifacts
+__MACOSX/
+Thumbs.db
+ehthumbs.db
+Icon?
+
+# Git folder (only shown here for visibility — don't delete!)
+!.gitignore
