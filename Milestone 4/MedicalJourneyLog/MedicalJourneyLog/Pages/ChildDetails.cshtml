@@ -1,0 +1,58 @@
+﻿@page "{id:int}"
+@model MedicalJourneyLog.Pages.ChildDetailsModel
+@{
+    ViewData["Title"] = "Child Details";
+}
+
+<div class="container mt-4">
+
+    @* Display the child's name as the page header *@
+    <h2>@Model.Child.Name</h2>
+
+    @* Show the child's date of birth in a readable format *@
+    <p>
+        <strong>Date of Birth:</strong>
+        @Model.Child.DateOfBirth?.ToString("MMMM dd, yyyy")
+    </p>
+
+    @* Button to log a new symptom for the current child using their ID *@
+    <a class="btn btn-primary mb-3"
+       asp-page="/LogSymptom"
+       asp-route-childId="@Model.Child.Id">
+        Log New Symptom
+    </a>
+
+    <h4>Symptoms</h4>
+
+    @* If symptoms exist, display them in a list format *@
+    @if (Model.Child.Symptoms != null && Model.Child.Symptoms.Any())
+    {
+        <ul class="list-group">
+            @foreach (var symptom in Model.Child.Symptoms)
+            {
+                <li class="list-group-item">
+                    <div class="d-flex justify-content-between">
+                        <strong>@symptom.Name</strong>
+
+                        @* Show the symptom logging date with time *@
+                        <time datetime="@symptom.DateLogged.ToString("o")">
+                            @symptom.DateLogged.ToString("MMMM dd, yyyy h:mm tt")
+                        </time>
+                    </div>
+
+                    @* Display symptom description if provided *@
+                    @if (!string.IsNullOrWhiteSpace(symptom.Description))
+                    {
+                        <p class="mb-0 text-muted">@symptom.Description</p>
+                    }
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        @* Message shown if no symptoms are found *@
+        <p>No symptoms recorded yet.</p>
+    }
+
+</div>

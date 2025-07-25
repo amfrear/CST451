@@ -1,0 +1,32 @@
+﻿@page
+@model MedicalJourneyLog.Pages.LogChildModel
+@{
+    ViewData["Title"] = "Log a Child";
+}
+
+<h2>Log a Child</h2>
+
+@* Form to input a new child's name and date of birth *@
+<form method="post">
+    <div class="mb-3">
+        @* Label and input field for child's name *@
+        <label asp-for="Child.Name" class="form-label"></label>
+        <input asp-for="Child.Name" class="form-control" />
+        <span asp-validation-for="Child.Name" class="text-danger"></span>
+    </div>
+
+    <div class="mb-3">
+        @* Label and input field for child's date of birth (as date picker) *@
+        <label asp-for="Child.DateOfBirth" class="form-label"></label>
+        <input asp-for="Child.DateOfBirth" type="date" class="form-control" />
+        <span asp-validation-for="Child.DateOfBirth" class="text-danger"></span>
+    </div>
+
+    @* Submit button to save the child record *@
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
+
+@* Include client-side validation scripts *@
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

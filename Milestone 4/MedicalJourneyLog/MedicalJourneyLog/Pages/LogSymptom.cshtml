@@ -1,0 +1,51 @@
+﻿@page
+@model MedicalJourneyLog.Pages.LogSymptomModel
+
+<h2>Log a Symptom</h2>
+
+@* Form for logging a new symptom for a selected child *@
+<form method="post">
+
+    @* Child dropdown list (foreign key selector) *@
+    <div class="mb-3">
+        <label for="childSelect" class="form-label">Child</label>
+        <select asp-for="Symptom.ChildId"
+                asp-items="Model.ChildrenOptions"
+                id="childSelect"
+                class="form-select">
+            <option value="">-- Select Child --</option>
+        </select>
+        <span asp-validation-for="Symptom.ChildId" class="text-danger"></span>
+    </div>
+
+    @* Input for symptom name (required) *@
+    <div class="mb-3">
+        <label asp-for="Symptom.Name" class="form-label"></label>
+        <input asp-for="Symptom.Name"
+               id="symptomName"
+               class="form-control" />
+        <span asp-validation-for="Symptom.Name" class="text-danger"></span>
+    </div>
+
+    @* Textarea for detailed symptom description (optional) *@
+    <div class="mb-3">
+        <label asp-for="Symptom.Description" class="form-label"></label>
+        <textarea asp-for="Symptom.Description"
+                  class="form-control"
+                  rows="4"></textarea>
+        <span asp-validation-for="Symptom.Description" class="text-danger"></span>
+    </div>
+
+    @* Datetime input for logging when the symptom occurred *@
+    <div class="mb-3">
+        <label asp-for="Symptom.DateLogged" class="form-label"></label>
+        <input asp-for="Symptom.DateLogged"
+               type="datetime-local"
+               class="form-control"
+               value="@Model.Symptom.DateLogged.ToString("yyyy-MM-ddTHH:mm")" />
+        <span asp-validation-for="Symptom.DateLogged" class="text-danger"></span>
+    </div>
+
+    @* Submit button to save the symptom *@
+    <button type="submit" class="btn btn-primary">Save</button>
+</form>
