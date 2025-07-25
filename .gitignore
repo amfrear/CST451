@@ -29,3 +29,6 @@ Icon?
 
 # Git folder (only shown here for visibility — don't delete!)
 !.gitignore
+
+# ✅ Allow specific SQL file for Milestone 4
+!Milestone\ 4/Dump20250720.sql
