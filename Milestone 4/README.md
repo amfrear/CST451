@@ -129,7 +129,7 @@ The screencast has been submitted with the Milestone 4 deliverables.
 ## 📎 GitHub Repo
 
 All code and resources for this milestone are committed to:  
-🔗 [GitHub Repository Link](https://github.com/amfrear/MedicalJourneyLog)
+🔗 [GitHub Repository Link](https://github.com/amfrear/CST451/tree/main/Milestone%204)
 
 ---
 
